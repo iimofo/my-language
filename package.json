@@ -1,0 +1,47 @@
+{
+  "name": "my-language",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iimofo/my-language.git"
+  },
+  "displayName": "My Language",
+  "description": "A simple programming language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:mylang"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "mylang",
+        "aliases": ["MyLang", "mylang"],
+        "extensions": [".mylang"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "mylang",
+        "scopeName": "source.mylang",
+        "path": "./syntaxes/mylang.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^10.0.0",
+    "typescript": "^3.7.0",
+    "vscode": "^1.1.36"
+  }
+}
